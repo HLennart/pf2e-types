@@ -1,8 +1,8 @@
-use serde::{Deserialize, Serialize};
-
 use crate::error::ParseError;
-
-#[derive(Debug, PartialEq, Copy, Clone, Serialize, Deserialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, PartialEq, Copy, Clone)]
 pub enum FeatType {
     Class,
     Archetype,

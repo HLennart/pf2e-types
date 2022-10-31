@@ -1,8 +1,8 @@
-use serde::{Deserialize, Serialize};
-
 use crate::error::ParseError;
-
-#[derive(PartialEq, Copy, Clone, Debug, Serialize, Deserialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(PartialEq, Copy, Clone, Debug)]
 pub enum ActionType {
     Passive,
     Action,

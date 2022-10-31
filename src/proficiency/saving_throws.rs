@@ -1,8 +1,9 @@
-use serde::{Deserialize, Serialize};
-
 use super::Proficiency;
 
-#[derive(Debug, Copy, Clone, Deserialize, Serialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, Copy, Clone)]
 pub struct SavingThrows {
     pub fortitude: Proficiency,
     pub reflex: Proficiency,

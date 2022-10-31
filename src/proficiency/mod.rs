@@ -6,10 +6,12 @@ mod weapon_proficiency;
 
 pub use defense_proficiency::DefenseProficiency;
 pub use saving_throws::SavingThrows;
-use serde::{Deserialize, Serialize};
 pub use weapon_proficiency::WeaponProficiency;
 
-#[derive(Debug, PartialEq, Clone, Copy, Deserialize, Serialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, PartialEq, Clone, Copy)]
 pub enum Proficiency {
     Untrained,
     Trained,

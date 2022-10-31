@@ -1,5 +1,3 @@
-use serde::{Deserialize, Serialize};
-
 use crate::{
     action::{ActionCategory, ActionType},
     pf_trait::Rarity,
@@ -7,7 +5,10 @@ use crate::{
 
 use super::feat_type::FeatType;
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, Clone)]
 pub struct Feat {
     pub id: usize,
     pub name: String,

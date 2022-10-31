@@ -1,12 +1,13 @@
-use serde::{Deserialize, Serialize};
-
 use crate::{
     pf_trait::Rarity,
     proficiency::{DefenseProficiency, Proficiency, SavingThrows, WeaponProficiency},
     statistic::{Ability, Skill},
 };
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, Clone)]
 pub struct Class {
     pub id: usize,
     pub name: String,

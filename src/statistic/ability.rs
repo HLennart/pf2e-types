@@ -1,8 +1,9 @@
-use serde::{Deserialize, Serialize};
-
 use crate::error::ParseError;
 
-#[derive(Debug, PartialEq, Eq, Clone, Copy, Deserialize, Serialize)]
+#[cfg(feature = "serde")]
+use serde::{Deserialize, Serialize};
+#[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
+#[derive(Debug, PartialEq, Eq, Clone, Copy)]
 pub enum Ability {
     Strength,
     Dexterity,
