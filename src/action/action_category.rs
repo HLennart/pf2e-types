@@ -2,7 +2,7 @@ use crate::error::ParseError;
 #[cfg(feature = "serde")]
 use serde::{Deserialize, Serialize};
 #[cfg_attr(feature = "serde", derive(Serialize, Deserialize))]
-#[derive(Debug, PartialEq, Copy, Clone)]
+#[derive(Debug, PartialEq, Copy, Clone, Eq, PartialOrd, Ord)]
 pub enum ActionCategory {
     Offensive,
     Defensive,
